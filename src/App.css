@@ -1,0 +1,227 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #0A0A0A; /* Color oscuro sólido y elegante */
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+/* Panel principal sólido */
+.glass-panel {
+    width: 100vw;
+    height: 100vh;
+    background: #0A0A0A; /* Mismo color sólido */
+    display: flex;
+    flex-direction: column;
+    /* Eliminamos los filtros de desenfoque (blur) */
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Borde súper sutil */
+}
+
+/* Zona superior para arrastrar */
+/* --- NUEVA ESTRUCTURA DEL HEADER --- */
+.top-bar {
+    position: relative;
+    display: flex;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.header-drag-zone {
+    -webkit-app-region: drag;
+    flex-grow: 1; /* Ocupa todo el espacio disponible */
+    padding: 12px;
+    text-align: center;
+    cursor: grab;
+}
+
+    .header-drag-zone h2 {
+        margin: 0;
+        font-size: 1.1rem;
+        pointer-events: none;
+    }
+
+.close-window-btn {
+    position: absolute;
+    right: 15px;
+    top: 12px;
+    color: #888888;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    -webkit-app-region: no-drag; /* Exigimos que aquí no se arrastre */
+    z-index: 999; /* Lo ponemos por encima de absolutamente todo */
+}
+
+    .close-window-btn:hover {
+        color: #FF1744;
+    }
+/* ---------------------------------- */
+
+    .header-drag-zone h2 {
+        margin: 0;
+        font-size: 1.1rem;
+        pointer-events: none;
+    }
+
+/* Botón de cerrar de la ventana */
+.close-window-btn {
+    position: absolute;
+    right: 15px;
+    top: 12px;
+    color: #888888;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    -webkit-app-region: no-drag;
+    z-index: 50;
+}
+
+    .close-window-btn:hover {
+        color: #FF1744;
+    }
+
+/* Barra de inputs responsiva */
+.add-trade-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nodrag {
+    -webkit-app-region: no-drag;
+}
+
+.add-trade-bar input {
+    flex: 1;
+    min-width: 70px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+.coin-input {
+    flex: 1.2;
+    text-transform: uppercase;
+}
+
+.optional-input {
+    border-style: dashed !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.add-btn {
+    flex: 0.8;
+    min-width: 85px;
+    background: #2962FF;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+    .add-btn:hover {
+        background: #1E4BCC;
+    }
+
+/* Tabla y contenedor responsivo */
+.table-container {
+    flex-grow: 1;
+    padding: 0 15px 15px 15px;
+    overflow-y: auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+    .table-container::-webkit-scrollbar {
+        display: none;
+    }
+
+.trading-table {
+    width: 100%;
+    min-width: 480px;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+    .trading-table th {
+        text-align: left;
+        padding: 10px 8px;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+        color: #aaaaaa;
+        font-weight: normal;
+    }
+
+    .trading-table td {
+        padding: 12px 8px;
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+.coin-cell {
+    font-weight: bold;
+    color: #F3BA2F;
+}
+
+.target-cell {
+    color: #888888;
+    font-style: italic;
+}
+
+.live-cell {
+    font-family: monospace;
+    font-size: 0.95rem;
+}
+
+.empty-msg {
+    text-align: center;
+    color: #777;
+    padding: 30px !important;
+}
+
+.green {
+    color: #00E676;
+    font-weight: bold;
+}
+
+.red {
+    color: #FF1744;
+    font-weight: bold;
+}
+
+/* Botón de borrar registros (Minimalista) */
+.delete-btn {
+    background: transparent;
+    color: #555555;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+    .delete-btn:hover {
+        color: #FF1744;
+        transform: scale(1.2);
+    }
+
+/* Ocultar las flechas (spinners) en los campos de números */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Compatibilidad para que Firefox no las muestre (por si acaso) */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
