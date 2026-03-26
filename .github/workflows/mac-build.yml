@@ -23,6 +23,9 @@ jobs:
       - name: install dependencies
         run: npm install
 
+      - name: Generar íconos para Mac 🪄
+        run: npx tauri icon Logo.png
+
       - name: build tauri app
         run: npm run tauri build
 
